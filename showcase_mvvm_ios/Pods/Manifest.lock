@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (5.0.0-beta.6)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxRetroSwift (2.3.2):
+    - RxCocoa (~> 4.1)
+    - RxSwift (~> 4.1)
+  - RxSwift (4.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.5)
+  - RxRetroSwift
+  - RxSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - RxCocoa
+    - RxRetroSwift
+    - RxSwift
+
+SPEC CHECKSUMS:
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxRetroSwift: f0269fab277a967a58ec42e5bc12ace789208e87
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+
+PODFILE CHECKSUM: 21419beb6281d956a6f6ac5eb78b29f40e233253
+
+COCOAPODS: 1.6.2
