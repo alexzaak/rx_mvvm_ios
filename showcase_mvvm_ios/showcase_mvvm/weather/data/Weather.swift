@@ -16,6 +16,7 @@ struct WeatherResult:Codable {
 struct Weather:Codable {
     var weather_state_name:String = ""
     var weather_state_abbr:String = ""
+    var applicable_date:String = ""
     var min_temp:Double = 0.0
     var max_temp:Double = 0.0
 }

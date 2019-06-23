@@ -14,17 +14,19 @@ class WeatherRepository {
     lazy var apiClient = ApiClient.shared
 
     func fetchWeather(id:Int) -> Single<Result<WeatherResult, ErrorModel>> {
-       return self.apiClient
+        return self.apiClient
             .fetchWeather(id: id)
-            .observeOn(MainScheduler.instance)
             .subscribeOn(CurrentThreadScheduler.instance)
+            .retry(3)
+            .observeOn(MainScheduler.instance)
             .asSingle()
     }
 
-    func fetchImage(name: String) -> Single<Data> {
-        return self.apiClient.fetchImage(name: name)
-            .observeOn(MainScheduler.instance)
+    func fetchImage(url: String) -> Single<Data> {
+        return self.apiClient.fetchImage(url: url)
             .subscribeOn(CurrentThreadScheduler.instance)
+            .retry(3)
+            .observeOn(MainScheduler.instance)
             .asSingle()
     }
 }

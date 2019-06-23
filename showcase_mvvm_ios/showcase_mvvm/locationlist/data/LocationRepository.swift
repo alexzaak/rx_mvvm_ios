@@ -16,8 +16,9 @@ class LocationRepository {
     func fetchLocations() -> Single<Result<[Location], ErrorModel>> {
         return self.apiClient
             .fetchLocations()
-            .observeOn(MainScheduler.instance)
             .subscribeOn(CurrentThreadScheduler.instance)
+            .retry(3)
+            .observeOn(MainScheduler.instance)
             .asSingle()
     }
 

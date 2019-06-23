@@ -31,8 +31,8 @@ class WeatherViewController: UIViewController {
 
         let weather = self.viewModel.weatherSubject.asObserver()
         weather.bind(to: tableView.rx.items(cellIdentifier: "WeatherCell", cellType: WeatherCell.self)) { (row, element, cell) in
-            cell.setIcon(iconName: element.weather_state_abbr)
-            cell.setState(stateName: element.weather_state_name)
+            cell.setIcon(iconName: element.iconUrl)
+            cell.setState(stateName: element.state)
             }
             .disposed(by: disposeBag)
 

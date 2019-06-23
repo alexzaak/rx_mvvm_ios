@@ -33,9 +33,6 @@ class ViewController: UIViewController {
         tableView.rx
             .modelSelected(Location.self)
             .subscribe(onNext:  { value in
-                print("Tapped `\(value.title)`")
-                let weatherViewController = WeatherViewController.storyboardInstance()
-                print(weatherViewController)
                 self.performSegue(withIdentifier: "showWeather", sender: value)
             })
             .disposed(by: disposeBag)
@@ -52,6 +49,7 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "showWeather"){
+            _ = WeatherViewController.storyboardInstance()
             let destinationController = segue.destination as? WeatherViewController
 
             if let model = sender as? Location {

@@ -44,9 +44,9 @@ class ApiClient {
         return caller.call(request)
     }
 
-    func fetchImage(name: String) -> Observable<Data> {
+    func fetchImage(url: String) -> Observable<Data> {
         return URLSession.shared.rx
-            .response(request: URLRequest(url: URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(name).png")!))
+            .response(request: URLRequest(url: URL(string: url)!))
             .map({$0.data})
     }
 }

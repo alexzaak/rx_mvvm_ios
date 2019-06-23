@@ -11,7 +11,7 @@ import RxSwift
 
 class WeatherViewModel {
     lazy var weatherRepository = WeatherRepository()
-    var weatherSubject: PublishSubject<[Weather]> = PublishSubject.init()
+    var weatherSubject: PublishSubject<[Forecast]> = PublishSubject.init()
     var imageSubject: PublishSubject<UIImage> = PublishSubject.init()
     var errorSubject: PublishSubject<String> = PublishSubject.init()
     
@@ -20,13 +20,13 @@ class WeatherViewModel {
     func getWeather(locationId:Int) {
         self.weatherRepository
             .fetchWeather(id: locationId)
+            .map({$0.value?.consolidated_weather.map({Forecast(state: $0.weather_state_name, formatedDate: $0.applicable_date, iconName: $0.weather_state_abbr, maxTemp: $0.max_temp)})})
             .subscribe(onSuccess: {
-                result in
-                if let weather = result.value {
-                    self.weatherSubject.onNext(weather.consolidated_weather)
-                }
-                if let error = result.error {
-                    self.errorSubject.onNext(error.errorDetail ?? "unknown")
+                data in
+                if let forecast = data {
+                    self.weatherSubject.onNext(forecast)
+                } else {
+                    self.errorSubject.onNext("unknown")
                 }
             },onError: {
                 error in
@@ -36,7 +36,19 @@ class WeatherViewModel {
     
     func getImage(name:String) -> Single<UIImage?> {
         return self.weatherRepository
-            .fetchImage(name: name)
+            .fetchImage(url: name)
             .map({UIImage(data:$0)})
+    }
+}
+
+struct Forecast {
+    let state: String
+    let iconUrl: String
+    let maxTemp: String
+
+    init(state: String, formatedDate: String, iconName: String, maxTemp: Double) {
+        self.state = "\(state) for \(formatedDate)"
+        self.iconUrl = "https://www.metaweather.com/static/img/weather/png/64/\(iconName).png"
+        self.maxTemp = "\(maxTemp.format())"
     }
 }

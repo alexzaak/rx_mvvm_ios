@@ -28,6 +28,7 @@
 		83BFFDB022BCCB6C0030026A /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFFDAF22BCCB6C0030026A /* WeatherViewController.swift */; };
 		83BFFDB222BCCC250030026A /* Weather.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83BFFDB122BCCC250030026A /* Weather.storyboard */; };
 		83BFFDB422BCD6A30030026A /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFFDB322BCD6A30030026A /* WeatherCell.swift */; };
+		83BFFDB722BEB36C0030026A /* Double+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BFFDB622BEB36C0030026A /* Double+format.swift */; };
 		BC050F558C28706131970B5E /* Pods_showcase_mvvmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F566A7DC4340DB8DDE5119 /* Pods_showcase_mvvmUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		83BFFDAF22BCCB6C0030026A /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		83BFFDB122BCCC250030026A /* Weather.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Weather.storyboard; sourceTree = "<group>"; };
 		83BFFDB322BCD6A30030026A /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		83BFFDB622BEB36C0030026A /* Double+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+format.swift"; sourceTree = "<group>"; };
 		967655686E12BBF043CFEDED /* Pods-showcase_mvvm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showcase_mvvm.release.xcconfig"; path = "Target Support Files/Pods-showcase_mvvm/Pods-showcase_mvvm.release.xcconfig"; sourceTree = "<group>"; };
 		A6E04C08AA0E6A6E46B68A4F /* Pods-showcase_mvvmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-showcase_mvvmTests.release.xcconfig"; path = "Target Support Files/Pods-showcase_mvvmTests/Pods-showcase_mvvmTests.release.xcconfig"; sourceTree = "<group>"; };
 		ADC1567C463240CAF1B10B73 /* Pods_showcase_mvvmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_showcase_mvvmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +163,7 @@
 		83BFFD6322BBB3ED0030026A /* showcase_mvvm */ = {
 			isa = PBXGroup;
 			children = (
+				83BFFDB522BEB1B40030026A /* extensions */,
 				83BFFDA922BCBF2E0030026A /* common */,
 				83BFFDA222BCBCFD0030026A /* weather */,
 				83BFFD9222BBBAD50030026A /* locationlist */,
@@ -204,8 +207,8 @@
 			children = (
 				83BFFD6822BBB3ED0030026A /* Main.storyboard */,
 				83BFFD6622BBB3ED0030026A /* ViewController.swift */,
-				83BFFD9C22BBC81A0030026A /* LocationViewModel.swift */,
 				83BFFDA022BCAA010030026A /* LocationCell.swift */,
+				83BFFD9C22BBC81A0030026A /* LocationViewModel.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -240,10 +243,10 @@
 		83BFFDA422BCBD1B0030026A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				83BFFDAB22BCC5730030026A /* WeatherViewModel.swift */,
-				83BFFDAF22BCCB6C0030026A /* WeatherViewController.swift */,
 				83BFFDB122BCCC250030026A /* Weather.storyboard */,
+				83BFFDAF22BCCB6C0030026A /* WeatherViewController.swift */,
 				83BFFDB322BCD6A30030026A /* WeatherCell.swift */,
+				83BFFDAB22BCC5730030026A /* WeatherViewModel.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -263,6 +266,14 @@
 				83BFFD9A22BBC63F0030026A /* ErrorModel.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		83BFFDB522BEB1B40030026A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				83BFFDB622BEB36C0030026A /* Double+format.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +511,7 @@
 			files = (
 				83BFFDAE22BCC8CB0030026A /* ApiClient.swift in Sources */,
 				83BFFDB022BCCB6C0030026A /* WeatherViewController.swift in Sources */,
+				83BFFDB722BEB36C0030026A /* Double+format.swift in Sources */,
 				83BFFD9B22BBC63F0030026A /* ErrorModel.swift in Sources */,
 				83BFFD9D22BBC81A0030026A /* LocationViewModel.swift in Sources */,
 				83BFFDB422BCD6A30030026A /* WeatherCell.swift in Sources */,
