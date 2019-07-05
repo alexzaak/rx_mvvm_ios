@@ -13,7 +13,7 @@ import RxRetroSwift
 class WeatherRepository {
     lazy var apiClient = ApiClient.shared
 
-    func fetchWeather(id:Int) -> Single<Result<WeatherResult, ErrorModel>> {
+    func fetchWeather(id:Int) -> Single<Result<[Weather], ErrorModel>> {
         return self.apiClient
             .fetchWeather(id: id)
             .subscribeOn(CurrentThreadScheduler.instance)

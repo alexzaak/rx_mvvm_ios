@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface WeatherService {
-    @GET("location/{id}")
-    fun getWeather(@Path("id") id: Int): Single<Weather>
+    @GET("location/{id}/2019/7/05/")
+    fun getWeather(@Path("id") id: Int): Single<List<Forecast>>
 }

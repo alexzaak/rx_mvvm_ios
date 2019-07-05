@@ -20,7 +20,7 @@ class WeatherViewModel {
     func getWeather(locationId:Int) {
         self.weatherRepository
             .fetchWeather(id: locationId)
-            .map({$0.value?.consolidated_weather.map({Forecast(state: $0.weather_state_name, formatedDate: $0.applicable_date, iconName: $0.weather_state_abbr, maxTemp: $0.max_temp)})})
+            .map({$0.value?.map({Forecast(state: $0.weather_state_name, formatedDate: $0.applicable_date, iconName: $0.weather_state_abbr, maxTemp: $0.max_temp)})})
             .subscribe(onSuccess: {
                 data in
                 if let forecast = data {

@@ -19,7 +19,7 @@ class WeatherViewModel
     fun fetchWeather(id: Int) {
         disposable.add(
             weatherRepository.fetchWeather(id)
-                .subscribe({ _forecastList.postValue(it.forecastList) }, {})
+                .subscribe({ _forecastList.postValue(it) }, {})
         )
     }
 

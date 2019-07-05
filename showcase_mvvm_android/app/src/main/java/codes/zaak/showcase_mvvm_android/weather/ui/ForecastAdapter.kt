@@ -28,7 +28,7 @@ class ForecastAdapter() :
         fun bind(forecast: Forecast) {
             itemView.state.text = forecast.state
             Picasso.get()
-                .load("https://www.metaweather.com/static/img/weather/png/64/${forecast.state}.png")
+                .load("https://www.metaweather.com/static/img/weather/png/64/${forecast.iconName}.png")
                 .into(itemView.icon)
         }
     }

@@ -25,10 +25,10 @@ class ApiClient {
         RequestModel.defaults.baseUrl = "https://www.metaweather.com/api"
     }
 
-    func fetchWeather(id:Int) -> Observable<Result<WeatherResult, ErrorModel>> {
+    func fetchWeather(id:Int) -> Observable<Result<[Weather], ErrorModel>> {
         let request:URLRequest = RequestModel(
             httpMethod: .get,
-            path: "location/\(id)")
+            path: "location/\(id)/2019/7/05/")
             .asURLRequest()
 
         return caller.call(request)

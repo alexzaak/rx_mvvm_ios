@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class WeatherRepository
 @Inject constructor(val service: WeatherService) {
-    fun fetchWeather(id: Int): Single<Weather> {
+    fun fetchWeather(id: Int): Single<List<Forecast>> {
         return service.getWeather(id)
             .subscribeOn(Schedulers.io())
             .retry(3)

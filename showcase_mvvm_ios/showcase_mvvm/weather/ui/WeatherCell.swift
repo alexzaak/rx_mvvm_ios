@@ -14,7 +14,7 @@ class WeatherCell: UITableViewCell {
     @IBOutlet weak var iconView: UIImageView!
 
     var viewModel: WeatherViewModel = WeatherViewModel()
-    var model: Weather? = nil
+    var model: Forecast? = nil
 
     var disposeBag:DisposeBag = DisposeBag()
 
