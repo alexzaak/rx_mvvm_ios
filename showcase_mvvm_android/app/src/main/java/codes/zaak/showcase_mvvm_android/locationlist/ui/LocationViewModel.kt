@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import codes.zaak.showcase_mvvm_android.locationlist.data.Location
 import codes.zaak.showcase_mvvm_android.locationlist.data.LocationRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -22,6 +23,7 @@ class LocationViewModel
     fun fetchLocations() {
         disposable.add(
             locationRepository.fetchLocations("53.5582447,9.647645")
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     {
                         _locationList.postValue(it)

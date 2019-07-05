@@ -19,6 +19,7 @@ class LocationViewModel {
     func getNearlyLocations() {
         locationRepository
             .fetchLocations(latLong: "53.5582447,9.647645")
+            .observeOn(Schedulers.shared.mainScheduler)
             .subscribe(onSuccess: {
                 result in
                 if let locations = result.value {

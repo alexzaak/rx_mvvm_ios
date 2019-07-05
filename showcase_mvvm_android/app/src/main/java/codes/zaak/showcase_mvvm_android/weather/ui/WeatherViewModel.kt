@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import codes.zaak.showcase_mvvm_android.weather.data.Forecast
 import codes.zaak.showcase_mvvm_android.weather.data.WeatherRepository
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
@@ -19,6 +20,7 @@ class WeatherViewModel
     fun fetchWeather(id: Int) {
         disposable.add(
             weatherRepository.fetchWeather(id)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ _forecastList.postValue(it) }, {})
         )
     }

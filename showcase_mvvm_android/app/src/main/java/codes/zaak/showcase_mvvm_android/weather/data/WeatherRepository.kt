@@ -1,7 +1,6 @@
 package codes.zaak.showcase_mvvm_android.weather.data
 
 import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
@@ -11,6 +10,6 @@ class WeatherRepository
         return service.getWeather(id)
             .subscribeOn(Schedulers.io())
             .retry(3)
-            .observeOn(AndroidSchedulers.mainThread())
+            .observeOn(Schedulers.computation())
     }
 }

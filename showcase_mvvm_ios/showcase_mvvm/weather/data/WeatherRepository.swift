@@ -16,17 +16,17 @@ class WeatherRepository {
     func fetchWeather(id:Int) -> Single<Result<[Weather], ErrorModel>> {
         return self.apiClient
             .fetchWeather(id: id)
-            .subscribeOn(CurrentThreadScheduler.instance)
+            .subscribeOn(Schedulers.shared.backgroundWorkScheduler)
             .retry(3)
-            .observeOn(MainScheduler.instance)
+            .observeOn(CurrentThreadScheduler.instance)
             .asSingle()
     }
 
     func fetchImage(url: String) -> Single<Data> {
         return self.apiClient.fetchImage(url: url)
-            .subscribeOn(CurrentThreadScheduler.instance)
+            .subscribeOn(Schedulers.shared.backgroundWorkScheduler)
             .retry(3)
-            .observeOn(MainScheduler.instance)
+            .observeOn(CurrentThreadScheduler.instance)
             .asSingle()
     }
 }

@@ -20,6 +20,7 @@ class WeatherViewModel {
     func getWeather(locationId:Int) {
         self.weatherRepository
             .fetchWeather(id: locationId)
+            .observeOn(Schedulers.shared.mainScheduler)
             .map({$0.value?.map({Forecast(state: $0.weather_state_name, formatedDate: $0.applicable_date, iconName: $0.weather_state_abbr, maxTemp: $0.max_temp)})})
             .subscribe(onSuccess: {
                 data in
@@ -37,6 +38,7 @@ class WeatherViewModel {
     func getImage(name:String) -> Single<UIImage?> {
         return self.weatherRepository
             .fetchImage(url: name)
+            .observeOn(Schedulers.shared.mainScheduler)
             .map({UIImage(data:$0)})
     }
 }
