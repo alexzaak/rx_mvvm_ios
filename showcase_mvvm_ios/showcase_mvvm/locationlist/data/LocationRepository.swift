@@ -13,9 +13,9 @@ import RxRetroSwift
 class LocationRepository {
     lazy var apiClient = ApiClient.shared
 
-    func fetchLocations() -> Single<Result<[Location], ErrorModel>> {
+    func fetchLocations(latLong: String) -> Single<Result<[Location], ErrorModel>> {
         return self.apiClient
-            .fetchLocations()
+            .fetchLocations(latLong: latLong)
             .subscribeOn(CurrentThreadScheduler.instance)
             .retry(3)
             .observeOn(MainScheduler.instance)

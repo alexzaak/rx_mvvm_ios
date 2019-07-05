@@ -165,8 +165,8 @@
 			children = (
 				83BFFDB522BEB1B40030026A /* extensions */,
 				83BFFDA922BCBF2E0030026A /* common */,
-				83BFFDA222BCBCFD0030026A /* weather */,
 				83BFFD9222BBBAD50030026A /* locationlist */,
+				83BFFDA222BCBCFD0030026A /* weather */,
 				83BFFD6422BBB3ED0030026A /* AppDelegate.swift */,
 				83BFFD6B22BBB3EF0030026A /* Assets.xcassets */,
 				83BFFD6D22BBB3EF0030026A /* LaunchScreen.storyboard */,

@@ -21,7 +21,7 @@ class LocationViewModel
 
     fun fetchLocations() {
         disposable.add(
-            locationRepository.fetchLocation("53.5582447,9.647645")
+            locationRepository.fetchLocations("53.5582447,9.647645")
                 .subscribe(
                     {
                         _locationList.postValue(it)

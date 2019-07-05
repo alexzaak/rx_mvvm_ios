@@ -10,16 +10,15 @@ import Foundation
 import RxSwift
 
 class LocationViewModel {
-    lazy var searchRepository = LocationRepository()
+    lazy var locationRepository = LocationRepository()
     var locationSubject: PublishSubject<[Location]> = PublishSubject.init()
     var errorSubject: PublishSubject<String> = PublishSubject.init()
     
     private let disposeBag = DisposeBag()
     
-    
     func getNearlyLocations() {
-        searchRepository
-            .fetchLocations()
+        locationRepository
+            .fetchLocations(latLong: "53.5582447,9.647645")
             .subscribe(onSuccess: {
                 result in
                 if let locations = result.value {
